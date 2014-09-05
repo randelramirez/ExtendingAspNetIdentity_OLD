@@ -203,6 +203,7 @@
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\DataInitializer.cs" />
     <Compile Include="Models\EditUserViewModel.cs" />
+    <Compile Include="Models\EmailService.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OldAccountViewModels.cs">
@@ -217,6 +218,7 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonInfoExtension.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="Models\SmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

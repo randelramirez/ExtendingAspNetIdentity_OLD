@@ -40,7 +40,7 @@ namespace ExtendingAspNetIdentity.Models
                 RequireNonLetterOrDigit = true,
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = true
             };
 
             // Configure user lockout defaults
@@ -67,8 +67,8 @@ namespace ExtendingAspNetIdentity.Models
                     BodyFormat = "Your security code is {0}"
                 });
 
-            //manager.EmailService = new EmailService();
-            //manager.SmsService = new SmsService();
+            manager.EmailService = new EmailService();
+            manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
