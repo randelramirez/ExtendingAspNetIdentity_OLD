@@ -154,8 +154,8 @@ namespace ExtendingAspNetIdentity.Controllers
             }
 
             var userRoles = await UserManager.GetRolesAsync(user.Id);
-
-            return View(new EditUserViewModel()
+           
+            var model = new EditUserViewModel()
             {
                 Id = user.Id,
                 Email = user.Email,
@@ -164,13 +164,16 @@ namespace ExtendingAspNetIdentity.Controllers
                 City = user.City,
                 State = user.State,
                 PostalCode = user.PostalCode,
-                RolesList = RoleManager.Roles.ToList().Select(x => new SelectListItem()
+                RolesList = userRoles.Count > 0 ? RoleManager.Roles.ToList().Select(x => new SelectListItem()
                 {
                     Selected = userRoles.Contains(x.Name),
                     Text = x.Name,
                     Value = x.Name
-                })
-            });
+                }) : null
+
+            };
+
+            return View(model);
         }
 
         //

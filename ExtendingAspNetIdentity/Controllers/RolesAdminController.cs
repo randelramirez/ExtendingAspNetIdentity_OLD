@@ -63,7 +63,7 @@ namespace ExtendingAspNetIdentity.Controllers
         // GET: /Roles/Details/5
         public async Task<ActionResult> Details(int id)
         {
-            if (id == 0)
+            if (id != 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -119,7 +119,7 @@ namespace ExtendingAspNetIdentity.Controllers
         // GET: /Roles/Edit/Admin
         public async Task<ActionResult> Edit(int id)
         {
-            if (id == 0)
+            if (id != 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -157,7 +157,7 @@ namespace ExtendingAspNetIdentity.Controllers
         // GET: /Roles/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
-            if (id == 0)
+            if (id != 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -177,7 +177,7 @@ namespace ExtendingAspNetIdentity.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (id == 0)
+                if (id != 0)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }

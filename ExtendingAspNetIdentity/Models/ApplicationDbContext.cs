@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -11,13 +12,20 @@ namespace ExtendingAspNetIdentity.Models
         //public ApplicationIdentityContext()
         //    : base("DataContext", throwIfV1Schema: false)
         //{
-           
+
         //}
 
         public ApplicationDbContext()
             : base("DataContext")
-    {
-    }
+        {
+
+        }
+
+        static ApplicationDbContext()
+        {
+            Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
+        }
+
 
         protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
         {
