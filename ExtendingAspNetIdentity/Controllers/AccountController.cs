@@ -15,7 +15,7 @@ namespace ExtendingAspNetIdentity.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationUserManager _userManager;
+        private ApplicationUserManager userManager;
 
         public AccountController()
         {
@@ -31,11 +31,11 @@ namespace ExtendingAspNetIdentity.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return this.userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
-                _userManager = value;
+                this.userManager = value;
             }
         }
 
@@ -48,15 +48,15 @@ namespace ExtendingAspNetIdentity.Controllers
             return View();
         }
 
-        private ApplicationSignInManager _signInManager;
+        private ApplicationSignInManager signInManager;
 
         public ApplicationSignInManager SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return this.signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set { _signInManager = value; }
+            private set { this.signInManager = value; }
         }
 
         //
@@ -180,7 +180,8 @@ namespace ExtendingAspNetIdentity.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(int userId, string code)
         {
-            if (userId == null || code == null)
+            //if (userId == null || code == null)
+            if(userId == 0 || code == null)
             {
                 return View("Error");
             }
@@ -291,7 +292,8 @@ namespace ExtendingAspNetIdentity.Controllers
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
-            if (userId == null)
+            //if (userId == null)
+            if(userId == 0)
             {
                 return View("Error");
             }
