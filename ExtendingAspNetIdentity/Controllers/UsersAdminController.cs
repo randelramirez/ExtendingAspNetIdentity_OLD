@@ -164,7 +164,7 @@ namespace ExtendingAspNetIdentity.Controllers
                 City = user.City,
                 State = user.State,
                 PostalCode = user.PostalCode,
-                RolesList = userRoles.Count > 0 ? RoleManager.Roles.ToList().Select(x => new SelectListItem()
+                RolesList = RoleManager.Roles.Count() > 0 ? RoleManager.Roles.ToList().Select(x => new SelectListItem()
                 {
                     Selected = userRoles.Contains(x.Name),
                     Text = x.Name,
