@@ -61,6 +61,7 @@ namespace ExtendingAspNetIdentity
 
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
+
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
             app.UseTwoFactorSignInCookie(DefaultAuthenticationTypes.TwoFactorCookie, TimeSpan.FromMinutes(5));
 
@@ -84,9 +85,10 @@ namespace ExtendingAspNetIdentity
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "",
-                ClientSecret = ""
+                ClientId = "573567191599-ivvrjbbltg20jdcgr4n01f99o2tp4orm.apps.googleusercontent.com",
+                ClientSecret = "iL4DHe1hlqOjRy7O6OiZGa09"
             });
+
         }
     }
 }
